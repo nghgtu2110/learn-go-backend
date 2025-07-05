@@ -3,14 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	i := 10
-	f := 20.5
-	b := true
-	s := "Hà Nội"
+	// Rectangular
 
-	fmt.Println(i)
-	fmt.Println(f)
-	fmt.Println(b)
-	fmt.Println(s)
+	width := 20
+	height := 10
+
+	area := width * height
+
+	fmt.Println("Area = ", area)
 
 }
