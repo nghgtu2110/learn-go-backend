@@ -3,10 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	var i int = 10
-	var f float32 = 20.5
-	var b bool = true
-	var s string = "Hà Nội"
+	i := 10
+	f := 20.5
+	b := true
+	s := "Hà Nội"
 
 	fmt.Println(i)
 	fmt.Println(f)
