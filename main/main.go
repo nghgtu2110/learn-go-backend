@@ -5,11 +5,19 @@ import "fmt"
 func main() {
 	// Rectangular
 
-	width := 20
-	height := 10
+	var a int
+	var b int
 
-	area := width * height
+	fmt.Print("Nhập a: ")
+	fmt.Scan(&a)
 
-	fmt.Println("Area = ", area)
+	fmt.Print("Nhập b: ")
+	fmt.Scan(&b)
+
+	if a%b == 0 && b != 0 {
+		fmt.Println("So a chia het cho so b")
+	} else {
+		fmt.Println("So a khong chia het cho so b")
+	}
 
 }
