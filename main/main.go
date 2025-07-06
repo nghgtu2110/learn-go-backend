@@ -1,16 +1,19 @@
 package main
 
-var a = "G"
+var a string
 
 func main() {
-	n() // G
-	m() // O
-	n() // O
+	a = "G"
+	print(a)
+	f1()
 }
-func n() {
+func f1() {
+	a := "O"
+	print(a)
+	f2()
+}
+func f2() {
 	print(a)
 }
-func m() {
-	a = "O"
-	print(a)
-}
+
+// GOG
