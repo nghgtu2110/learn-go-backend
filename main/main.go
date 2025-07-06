@@ -4,12 +4,13 @@ var a = "G"
 
 func main() {
 	n() // G
-
 	m() // O
-	n() // G
+	n() // O
 }
-func n() { print(a) }
+func n() {
+	print(a)
+}
 func m() {
-	a := "O"
+	a = "O"
 	print(a)
 }
