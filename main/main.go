@@ -1,12 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"demo/calculator"
+	"fmt"
+)
 
 func main() {
-	max := 4
-	if val := 10; val > max {
-		fmt.Println("Bigger than max")
-	}
-
-	fmt.Println("Val is undefined here: " + val)
+	fmt.Println(calculator.Add(5, 5))
+	fmt.Println(calculator.Multi(5, 5))
 }
