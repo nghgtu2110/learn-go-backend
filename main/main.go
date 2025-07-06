@@ -1,8 +1,15 @@
 package main
 
-func main() {
-	var p *int = nil // Making a nil pointer
-	*p = 0           // việc hủy tham chiếu con trỏ nill là không được phép.
-}
+var a = "G"
 
-// panic: runtime error: invalid memory address or nil pointer dereference
+func main() {
+	n() // G
+
+	m() // O
+	n() // G
+}
+func n() { print(a) }
+func m() {
+	a := "O"
+	print(a)
+}
