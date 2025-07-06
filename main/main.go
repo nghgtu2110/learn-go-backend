@@ -2,12 +2,15 @@ package main
 
 import "fmt"
 
-//k := 3 // syntax error
+func abc(a int) {
+	fmt.Println(a)
+}
 
 func main() {
-	var a = 1 // implicit type = int
-	var b bool
-	fmt.Println(a)
-	fmt.Println(b)
-	// fmt.Println(k)
+	a := 10
+	defer abc(a) // -> 10
+
+	a += 10 // -> 20
+	fmt.Println("hello", a) // a = 10
+	
 }
