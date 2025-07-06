@@ -1,11 +1,8 @@
 package main
 
-import (
-	"demo/calculator"
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	fmt.Println(calculator.Add(5, 5))
-	fmt.Println(calculator.Multi(5, 5))
+	var a = 1 // implicit type = int
+	fmt.Println(a)
 }
