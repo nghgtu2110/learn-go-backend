@@ -3,21 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	// Rectangular
-
 	var a int
-	var b int
-
-	fmt.Print("Nhập a: ")
+	fmt.Println("nhap vao so a: ")
 	fmt.Scan(&a)
-
-	fmt.Print("Nhập b: ")
+	var b int
+	fmt.Println("nhap vao so b: ")
 	fmt.Scan(&b)
 
-	if a%b == 0 && b != 0 {
-		fmt.Println("So a chia het cho so b")
-	} else {
-		fmt.Println("So a khong chia het cho so b")
-	}
-
+	fmt.Printf("Tong cua 2 so a va b: %d\n", a+b)
+	fmt.Printf("Hieu cua 2 so a va b: %d\n", a-b)
+	fmt.Printf("Tich cua 2 so a va b: %d\n", a*b)
 }
