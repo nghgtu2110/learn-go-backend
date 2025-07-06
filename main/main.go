@@ -3,11 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	s := "good bye"
-	var p *string = &s
-	*p = "ciao" // changing the value at &s
+	// error of pointers and addresses:
 
-	fmt.Printf("Here is the pointer p: %p\n", p)  // prints address
-	fmt.Printf("Here is the string *p: %s\n", *p) // prints string
-	fmt.Printf("Here is the string s: %s\n", s)   // prints same string
+	const i = 5
+	ptr1 := &i  //error: cannot take the address of i
+	ptr2 := &10 //error: cannot take the address of 10
+
+	fmt.Printf("Here is the pointer p: %p\n", ptr1) // cannot print
+	fmt.Printf("Here is the pointer p: %p\n", ptr2) // cannot print
 }
