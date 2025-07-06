@@ -1,19 +1,13 @@
 package main
 
-var a string
+import "fmt"
 
 func main() {
-	a = "G"
-	print(a)
-	f1()
+	n := 42
+	// Use of control structure if and else to check whether number is even or not
+	if n%2 == 0 {
+		fmt.Printf("The value is even\n")
+	} else {
+		fmt.Printf("The value is odd\n")
+	}
 }
-func f1() {
-	a := "O"
-	print(a)
-	f2()
-}
-func f2() {
-	print(a)
-}
-
-// GOG
