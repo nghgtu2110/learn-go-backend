@@ -7,4 +7,6 @@ func main() {
 	if val := 10; val > max {
 		fmt.Println("Bigger than max")
 	}
+
+	fmt.Println("Val is undefined here: " + val)
 }
