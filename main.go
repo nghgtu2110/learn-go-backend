@@ -25,4 +25,13 @@ func main() {
 	fmt.Println(maps)
 	fmt.Println("Hanoi at: ", maps["Hanoi"])
 	fmt.Println("Hochiminh city at: ", maps["Hochiminh City"])
+
+	maps["Singapore"] = Vertex{1.3521, 103.8198}
+
+	delete(maps, "Bell Labs")
+	fmt.Println(maps["Bell Labs"])
+	v, ok := maps["Bell Labs"]
+	fmt.Println(v, ok)
+
+	fmt.Println(maps)
 }
