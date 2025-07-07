@@ -1,21 +1,19 @@
 package main
 
 import (
-	"fmt"
+	"io"
+	"log"
 )
 
-func func1(s string) (n int) {
+func func1(s string) (n int, err error) {
 
 	defer func() {
-		fmt.Println("s :", s)
+		log.Printf("func1(%q) = %d, %v", s, n, err)
 	}()
 
-	return 7
+	return 7, io.EOF
 }
 
 func main() {
-	fmt.Println(func1("Go"))
-	/* s: Go
-	7
-	*/
+	func1("Go")
 }
