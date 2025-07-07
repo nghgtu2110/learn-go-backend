@@ -9,4 +9,12 @@ func main() {
 	for index, elem := range arr {
 		fmt.Println("At index: ", index, " element is: ", elem)
 	}
+
+	for index := range arr {
+		fmt.Println("At index: ", index, " element is: ", arr[index])
+	}
+
+	for _, elem := range arr {
+		fmt.Println("Element is: ", elem)
+	}
 }
