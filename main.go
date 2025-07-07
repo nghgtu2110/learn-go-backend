@@ -2,26 +2,18 @@ package main
 
 import "fmt"
 
-/*type flt func(int) bool // aliasing type*/
-
-func isEven(n int) bool { // check if n is even or not
-	return (n%2 == 0)
+func DoSomething1(a *int) *int {
+	b := a
+	return b
 }
-
-func filter(sl []int /*, f flt*/) (even, odd []int) { // split s into two slices: even and odd
-	for _, v := range sl {
-		if isEven(v) {
-			even = append(even, v)
-		} else {
-			odd = append(odd, v)
-		}
-	}
-	return
+func DoSomething2(a int) *int {
+	b := &a
+	return b
 }
 
 func main() {
-	slice := []int{1, 2, 3, 4, 5, 7}
-	even, odd := filter(slice)
-	fmt.Println(even)
-	fmt.Println(odd)
+	x := 10
+	//x_ptr := &x
+	fmt.Println(DoSomething1(&x))
+	fmt.Println(DoSomething2(x))
 }
