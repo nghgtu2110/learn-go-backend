@@ -2,19 +2,27 @@ package main
 
 import "fmt"
 
+type Vertex struct {
+	Lat, Long float64
+}
+
 func main() {
-
-	arr := []int{1, 2, 3, 4, 7, 9, 6, 5, 10, 25}
-
-	for index, elem := range arr {
-		fmt.Println("At index: ", index, " element is: ", elem)
+	var maps = map[string]Vertex{
+		"Bell Labs": Vertex{
+			40.68433, -74.39967,
+		},
+		"Google": Vertex{
+			37.42202, -122.08408,
+		},
+		"Hanoi": Vertex{
+			21.0278, 105.8342,
+		},
+		"Hochiminh City": Vertex{
+			10.8231, 106.6297,
+		},
 	}
 
-	for index := range arr {
-		fmt.Println("At index: ", index, " element is: ", arr[index])
-	}
-
-	for _, elem := range arr {
-		fmt.Println("Element is: ", elem)
-	}
+	fmt.Println(maps)
+	fmt.Println("Hanoi at: ", maps["Hanoi"])
+	fmt.Println("Hochiminh city at: ", maps["Hochiminh City"])
 }
