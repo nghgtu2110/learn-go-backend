@@ -2,14 +2,19 @@ package main
 
 import "fmt"
 
-func SumProductDiff(i, j int) (s int, p int, d int) {
-	s = i + j
-	p = i * j
-	d = i - j
-	return s, p, d
-}
 func main() {
-	var a, b int
-	fmt.Scanf("%d %d", &a, &b)
-	fmt.Println(SumProductDiff(a, b))
+	// function calls for multiple arg.
+	fmt.Println(sumInts())
+	fmt.Println(sumInts(2, 3))
+	fmt.Println(sumInts(5, -2, 0, 9))
+	fmt.Println(sumInts(0, 1, 2, 5, 10, 1, 2, -4))
+}
+
+// variadic function
+func sumInts(list ...int) int {
+	sum := 0
+	for _, v := range list {
+		sum += v
+	}
+	return sum
 }
