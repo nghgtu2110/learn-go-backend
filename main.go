@@ -15,4 +15,7 @@ func func1(s string) (n int) {
 
 func main() {
 	fmt.Println(func1("Go"))
+	/* s: Go
+	7
+	*/
 }
