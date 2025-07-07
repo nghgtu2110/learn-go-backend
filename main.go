@@ -21,5 +21,7 @@ func filter(sl []int /*, f flt*/) (even, odd []int) { // split s into two slices
 
 func main() {
 	slice := []int{1, 2, 3, 4, 5, 7}
-	fmt.Println(filter(slice))
+	even, odd := filter(slice)
+	fmt.Println(even)
+	fmt.Println(odd)
 }
