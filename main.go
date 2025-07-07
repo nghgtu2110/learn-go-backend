@@ -2,15 +2,14 @@ package main
 
 import "fmt"
 
-func abc(a int) {
-	fmt.Println(a)
-}
-
 func main() {
-	a := 10
-	defer abc(a) // -> 10
+	s := []struct {
+		a int
+		b bool
+	}{
+		{a: 1, b: true},
+		{2, false},
+	}
 
-	a += 10 // -> 20
-	fmt.Println("hello", a) // a = 10
-	
+	fmt.Println(s)
 }
