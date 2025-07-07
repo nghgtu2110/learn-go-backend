@@ -3,13 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	s := []struct {
-		a int
-		b bool
-	}{
-		{a: 1, b: true},
-		{2, false},
-	}
-
+	s := []string{"Hello", "World", "from", "Go"}
 	fmt.Println(s)
+	x := s[:3]
+	fmt.Println(x)
+	y := s[2:]
+	fmt.Println(y)
+
 }
