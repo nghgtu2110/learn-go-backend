@@ -2,20 +2,14 @@ package main
 
 import "fmt"
 
-func adder() func(int) int {
-	sum := 0
-	return func(x int) int {
-		sum += x
-		return sum
-	}
+func SumProductDiff(i, j int) (s int, p int, d int) {
+	s = i + j
+	p = i * j
+	d = i - j
+	return s, p, d
 }
-
 func main() {
-	pos, neg := adder(), adder()
-	for i := 0; i < 10; i++ {
-		fmt.Println(
-			pos(i),
-			neg(-2*i),
-		)
-	}
+	var a, b int
+	fmt.Scanf("%d %d", &a, &b)
+	fmt.Println(SumProductDiff(a, b))
 }
