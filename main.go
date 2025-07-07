@@ -3,20 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	s := []string{"Hello", "World", "from", "Go"}
-	fmt.Println(s)
-	x := s[:3]
-	fmt.Println(x)
-	y := s[2:]
-	fmt.Println(y)
 
-	fmt.Println("capacity of s:", cap(s))
-
-	var a [6]int
-	fmt.Println("capacity of a:", cap(a))
-
-	arr := make([]int, 5, 10)
+	arr := make([]int, 0, 10)
 
 	fmt.Println("arr: ", arr, " len: ", len(arr), " cap: ", cap(arr))
+	arr = append(arr, 10)
+	arr = append(arr, 5)
+	arr = append(arr, 1)
+	arr = append(arr, 7)
 
+	fmt.Println("arr: ", arr)
 }
