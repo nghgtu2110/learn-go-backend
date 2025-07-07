@@ -2,19 +2,24 @@ package main
 
 import "fmt"
 
-func main() {
-	var n uint64
-	fmt.Scan(&n)
+/*type flt func(int) bool // aliasing type*/
 
-	fmt.Println(Factorial(n))
+func isEven(n int) bool { // check if n is even or not
+	return (n%2 == 0)
 }
 
-func Factorial(n uint64) (fac uint64) {
-	fac = 1
-	if n <= 1 {
-		return
-	} else {
-		fac = (n * Factorial(n-1))
-		return
+func filter(sl []int /*, f flt*/) (even, odd []int) { // split s into two slices: even and odd
+	for _, v := range sl {
+		if isEven(v) {
+			even = append(even, v)
+		} else {
+			odd = append(odd, v)
+		}
 	}
+	return
+}
+
+func main() {
+	slice := []int{1, 2, 3, 4, 5, 7}
+	fmt.Println(filter(slice))
 }
