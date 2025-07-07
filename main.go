@@ -18,12 +18,14 @@ func main() {
 
 	fmt.Println(stringPkg.IsEvenLengthString("hekfloanniag"))
 
-	array := []int{10, 5, -4, 2, 8}
+	var array = [5]int{}
+	array = [5]int{10, 5, -4, 2, 8}
+	// array := []int{10, 5, -4, 2, 8}
 
-	fmt.Println(slicePkg.Sum(array))
-	fmt.Println(slicePkg.Avg(array))
-	fmt.Println(slicePkg.FindMin(array))
-	fmt.Println(slicePkg.FindMax(array))
-	slicePkg.Sort(array)
+	fmt.Println(slicePkg.Sum(array[:]))
+	fmt.Println(slicePkg.Avg(array[:]))
+	fmt.Println(slicePkg.FindMin(array[:]))
+	fmt.Println(slicePkg.FindMax(array[:]))
+	slicePkg.Sort(array[:])
 	fmt.Println(array)
 }
