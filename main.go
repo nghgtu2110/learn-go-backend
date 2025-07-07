@@ -1,20 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func main() {
-	// function calls for multiple arg.
-	fmt.Println(sumInts())
-	fmt.Println(sumInts(2, 3))
-	fmt.Println(sumInts(5, -2, 0, 9))
-	fmt.Println(sumInts(0, 1, 2, 5, 10, 1, 2, -4))
+func func1(s string) (n int) {
+
+	defer func() {
+		fmt.Println("s :", s)
+	}()
+
+	return 7
 }
 
-// variadic function
-func sumInts(list ...int) int {
-	sum := 0
-	for _, v := range list {
-		sum += v
-	}
-	return sum
+func main() {
+	fmt.Println(func1("Go"))
 }
