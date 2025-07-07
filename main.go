@@ -1,37 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
-type Vertex struct {
-	Lat, Long float64
+func compute(fn func(x, y float64) float64, x, y float64) float64 {
+	return fn(x, y)
 }
 
 func main() {
-	var maps = map[string]Vertex{
-		"Bell Labs": Vertex{
-			40.68433, -74.39967,
-		},
-		"Google": Vertex{
-			37.42202, -122.08408,
-		},
-		"Hanoi": Vertex{
-			21.0278, 105.8342,
-		},
-		"Hochiminh City": Vertex{
-			10.8231, 106.6297,
-		},
+	hypot := func(x, y float64) float64 {
+		return math.Sqrt(x*x + y*y)
 	}
 
-	fmt.Println(maps)
-	fmt.Println("Hanoi at: ", maps["Hanoi"])
-	fmt.Println("Hochiminh city at: ", maps["Hochiminh City"])
-
-	maps["Singapore"] = Vertex{1.3521, 103.8198}
-
-	delete(maps, "Bell Labs")
-	fmt.Println(maps["Bell Labs"])
-	v, ok := maps["Bell Labs"]
-	fmt.Println(v, ok)
-
-	fmt.Println(maps)
+	fmt.Println(compute(hypot, 5, 12))
 }
