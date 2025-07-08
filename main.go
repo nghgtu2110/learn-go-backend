@@ -13,7 +13,11 @@ func fibonacci(n int) int {
 
 func main() {
 	f := fibonacci
-	for i := 0; i < 10; i++ {
-		fmt.Println(f(i))
+	var n int
+	_, err := fmt.Scanf("%d", &n)
+	if err != nil {
+		fmt.Println("Ten loi la:", err)
+	} else {
+		fmt.Println(f(n))
 	}
 }
