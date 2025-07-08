@@ -2,21 +2,18 @@ package main
 
 import "fmt"
 
-func DoSomething1(a *int) *int {
-	//b := a
-	//return b
-	return a
-}
-func DoSomething2(a int) *int {
-	//b := &a
-	//return b
-	return &a
+func fibonacci(n int) int {
+	if n == 0 {
+		return 0
+	} else if n == 1 {
+		return 1
+	}
+	return fibonacci(n-1) + fibonacci(n-2)
 }
 
 func main() {
-	x := 10
-	//x_ptr := &x
-	fmt.Println(&x)
-	fmt.Println(DoSomething1(&x))
-	fmt.Println(DoSomething2(x))
+	f := fibonacci
+	for i := 0; i < 10; i++ {
+		fmt.Println(f(i))
+	}
 }
