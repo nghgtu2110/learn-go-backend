@@ -2,22 +2,28 @@ package main
 
 import "fmt"
 
-func fibonacci(n int) int {
-	if n == 0 {
-		return 0
-	} else if n == 1 {
-		return 1
-	}
-	return fibonacci(n-1) + fibonacci(n-2)
+type Vertex struct {
+	X, Y float64
+}
+
+func (v *Vertex) Scale(f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f
+}
+
+func ScaleFunc(v *Vertex, f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f
 }
 
 func main() {
-	f := fibonacci
-	var n int
-	_, err := fmt.Scanf("%d", &n)
-	if err != nil {
-		fmt.Println("Ten loi la:", err)
-	} else {
-		fmt.Println(f(n))
-	}
+
+	v := Vertex{3, 4}
+	v.Scale(2)
+	fmt.Println(v)
+	ScaleFunc(&v, 10)
+	fmt.Println(v)
+	pv := &v
+	pv.Scale(5)
+	fmt.Println(v)
 }
