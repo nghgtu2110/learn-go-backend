@@ -17,8 +17,7 @@ func (r Rectangle) Perimeter() float64 {
 	return 2 * (r.Length + r.Width)
 }
 
-func main() {
-
+func inputRect() Rectangle {
 	var rectangle Rectangle
 
 	for {
@@ -45,6 +44,12 @@ func main() {
 		}
 	}
 
+	return rectangle
+}
+
+func main() {
+
+	rectangle := inputRect()
 	fmt.Println(rectangle.Perimeter())
 	fmt.Println(rectangle.Area())
 }
