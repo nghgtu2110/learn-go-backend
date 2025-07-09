@@ -1,29 +1,40 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
-type Vertex struct {
-	X, Y float64
+type I interface {
+	M()
 }
 
-func (v *Vertex) Scale(f float64) {
-	v.X = v.X * f
-	v.Y = v.Y * f
+type T struct {
+	S string
 }
 
-func ScaleFunc(v *Vertex, f float64) {
-	v.X = v.X * f
-	v.Y = v.Y * f
+func (t *T) M() {
+	fmt.Println(t.S)
+}
+
+type F float64
+
+func (f F) M() {
+	fmt.Println(f)
 }
 
 func main() {
+	var i I
 
-	v := Vertex{3, 4}
-	v.Scale(2)
-	fmt.Println(v)
-	ScaleFunc(&v, 10)
-	fmt.Println(v)
-	pv := &v
-	pv.Scale(5)
-	fmt.Println(v)
+	i = &T{"Hello"}
+	describe(i)
+	i.M()
+
+	i = F(math.Pi)
+	describe(i)
+	i.M()
+}
+
+func describe(i I) {
+	fmt.Printf("(%v, %T)\n", i, i)
 }
