@@ -7,8 +7,8 @@ import (
 )
 
 type Person struct {
-	Name string `json: "hoten"` /*if there is space between json: and "...", it won't work */
-	Age  int    `json: "tuoi"`
+	Name string `json:"hoten"` /*if there is space between json: and "...", it won't work */
+	Age  int    `json:"tuoi"`
 }
 
 func main() {
