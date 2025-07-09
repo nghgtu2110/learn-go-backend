@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 type Rectangle struct {
@@ -22,16 +21,28 @@ func main() {
 
 	var rectangle Rectangle
 
-	_, l_err := fmt.Scanf("%f", &rectangle.Length)
-	if l_err != nil {
-		fmt.Println(l_err)
-		os.Exit(1)
+	for {
+		fmt.Print("Enter the length of rectangle: ")
+		_, l_err := fmt.Scanf("%f", &rectangle.Length)
+		if l_err != nil {
+			fmt.Println(l_err)
+			fmt.Println("The value entered is invalid. Please try again.")
+		}
+		if l_err == nil && rectangle.Length > 0 {
+			break
+		}
 	}
 
-	_, w_err := fmt.Scanf("%f", &rectangle.Width)
-	if w_err != nil {
-		fmt.Println(w_err)
-		os.Exit(1)
+	for {
+		fmt.Print("Enter the width of rectangle: ")
+		_, l_err := fmt.Scanf("%f", &rectangle.Width)
+		if l_err != nil {
+			fmt.Println(l_err)
+			fmt.Println("The value entered is invalid. Please try again.")
+		}
+		if l_err == nil && rectangle.Width > 0 {
+			break
+		}
 	}
 
 	fmt.Println(rectangle.Perimeter())
