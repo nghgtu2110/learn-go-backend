@@ -1,19 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+)
+
+type Person struct {
+	Name string `json: "hoten"` /*if there is space between json: and "...", it won't work */
+	Age  int    `json: "tuoi"`
+}
 
 func main() {
-	var i interface{} = "hello"
+	nobody := Person{
+		Name: "Nobody",
+		Age:  40,
+	}
 
-	s := i.(string)
-	fmt.Println(s)
+	json, err := json.Marshal(nobody)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
 
-	s, ok := i.(string)
-	fmt.Println(s, ok)
-
-	f, ok := i.(float64)
-	fmt.Println(f, ok)
-
-	f = i.(float64) // panic
-	fmt.Println(f)
+	fmt.Println(nobody)
+	fmt.Println(string(json))
 }
