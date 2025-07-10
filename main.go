@@ -2,20 +2,35 @@ package main
 
 import "fmt"
 
-type IPAddr [4]byte
-
-// TODO: Add a "String() string" method to IPAddr.
-
-func (ip IPAddr) String() string {
-	return fmt.Sprintf("%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3])
-}
-
 func main() {
-	hosts := map[string]IPAddr{
-		"loopback":  {127, 0, 0, 1},
-		"googleDNS": {8, 8, 8, 8},
+	var value int
+	var isPresent bool
+	map1 := make(map[string]int)
+	map1["New Delhi"] = 55
+	map1["Paris"] = 20
+	map1["Washington"] = 25
+
+	// checking existence of a key
+	if value, isPresent = map1["Beijing"]; isPresent {
+		fmt.Printf("The value of Beijing in map1 is: %d\n", value)
+	} else {
+		fmt.Println("map1 does not contain Beijing")
 	}
-	for name, ip := range hosts {
-		fmt.Printf("%v: %v\n", name, ip)
+
+	// checking existence of a key
+	if value, isPresent = map1["Paris"]; isPresent {
+		fmt.Printf("The value of Paris in map1 is: %d\n", value)
+	} else {
+		fmt.Println("map1 does not contain Paris")
+	}
+
+	// delete an item:
+	delete(map1, "Washington")
+	value, isPresent = map1["Washington"] // checking existence of a key
+
+	if isPresent {
+		fmt.Printf("The value of \"Washington\" in map1 is: %d\n", value)
+	} else {
+		fmt.Println("map1 does not contain Washington")
 	}
 }
