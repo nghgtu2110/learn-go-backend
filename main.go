@@ -21,11 +21,7 @@ func (p Person) IsAppropriateCareer() bool {
 
 func main() {
 	var person Person
-	person = Person{
-		Name:       "Harry",
-		Occupation: "Software Engineer",
-		BirthYear:  1995,
-	}
+	fmt.Scan(&person.Name, &person.Occupation, &person.BirthYear)
 
 	fmt.Println(person.GetAge())
 	fmt.Println(person.IsAppropriateCareer())
