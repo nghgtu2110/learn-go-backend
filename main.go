@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"others/personStruct"
 	"others/rectangle"
 	"others/slicePkg"
 	"others/stringPkg"
@@ -28,4 +29,10 @@ func main() {
 	fmt.Println(slicePkg.FindMax(array[:]))
 	slicePkg.Sort(array[:])
 	fmt.Println(array)
+
+	var person personStruct.Person
+	fmt.Scan(&person.Name, &person.Occupation, &person.BirthYear)
+
+	fmt.Println(person.GetAge())
+	fmt.Println(person.IsAppropriateCareer())
 }
