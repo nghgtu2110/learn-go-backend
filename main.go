@@ -1,36 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
+
+type Person struct {
+	Name       string
+	Occupation string
+	BirthYear  int
+}
+
+func (p Person) GetAge() int {
+	return time.Now().Year() - p.BirthYear
+}
+
+func (p Person) IsAppropriateCareer() bool {
+	return len(p.Name) >= 0 && (p.BirthYear%len(p.Name) == 0)
+}
 
 func main() {
-	var value int
-	var isPresent bool
-	map1 := make(map[string]int)
-	map1["New Delhi"] = 55
-	map1["Paris"] = 20
-	map1["Washington"] = 25
-
-	// checking existence of a key
-	if value, isPresent = map1["Beijing"]; isPresent {
-		fmt.Printf("The value of Beijing in map1 is: %d\n", value)
-	} else {
-		fmt.Println("map1 does not contain Beijing")
+	var person Person
+	person = Person{
+		Name:       "Harry",
+		Occupation: "Software Engineer",
+		BirthYear:  1995,
 	}
 
-	// checking existence of a key
-	if value, isPresent = map1["Paris"]; isPresent {
-		fmt.Printf("The value of Paris in map1 is: %d\n", value)
-	} else {
-		fmt.Println("map1 does not contain Paris")
-	}
-
-	// delete an item:
-	delete(map1, "Washington")
-	value, isPresent = map1["Washington"] // checking existence of a key
-
-	if isPresent {
-		fmt.Printf("The value of \"Washington\" in map1 is: %d\n", value)
-	} else {
-		fmt.Println("map1 does not contain Washington")
-	}
+	fmt.Println(person.GetAge())
+	fmt.Println(person.IsAppropriateCareer())
 }
