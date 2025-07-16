@@ -19,8 +19,8 @@ func main() {
 	defer inputFile.Close()
 	inputReader := bufio.NewReader(inputFile)
 	for {
-		// needs an empty newline at the end of input file
-		inputString, readerError := inputReader.ReadString('\n')
+		// needs another | character at the end of file input
+		inputString, readerError := inputReader.ReadString('|')
 		if readerError == io.EOF {
 			return
 		}

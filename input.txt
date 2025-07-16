@@ -1,5 +1,1 @@
-chicken
-cow
-donkey
-horse
-pig
+Tom|Software Engineer|1995|
