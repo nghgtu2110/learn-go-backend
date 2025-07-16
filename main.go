@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"others/charOccur"
 	"others/personStruct"
 	"others/rectangle"
 	"others/slicePkg"
@@ -35,4 +36,11 @@ func main() {
 
 	fmt.Println(person.GetAge())
 	fmt.Println(person.IsAppropriateCareer())
+
+	input := "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum purus vitae laoreet bibendum. Proin mattis libero ac massa blandit."
+	charMap := charOccur.CharacterOccurence(input)
+	for k, v := range charMap {
+		fmt.Printf("%c : %d,", k, v)
+	}
+
 }
