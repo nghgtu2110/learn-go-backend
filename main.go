@@ -17,12 +17,16 @@ func main() {
 	}()
 
 	// Goroutine Anonymous
-	go func() {
-		fmt.Println(<-ch)
-		fmt.Println(<-ch)
-		fmt.Println(<-ch)
-		fmt.Println("Receiving...")
-	}()
+	// go func() {
+	//	fmt.Println(<-ch)
+	//	fmt.Println(<-ch)
+	//	fmt.Println(<-ch)
+	//	fmt.Println("Receiving...")
+	//}()
+
+	fmt.Println(<-ch)
+	fmt.Println(<-ch)
+	//fmt.Println(<-ch)
 
 	// do anything on the channel isn't quick
 	// so fmt.Println("") may complete sooner
