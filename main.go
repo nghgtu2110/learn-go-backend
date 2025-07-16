@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
-func task(id int) {
+func task(id int, wg *sync.WaitGroup) {
+	defer wg.Done()
 	fmt.Printf("task start %d\n", id)
 	time.Sleep(1 * time.Second)
 	fmt.Println("task end", id)
@@ -13,10 +15,13 @@ func task(id int) {
 
 func main() {
 	start := time.Now()
-	task(1)
-	task(2)
-	task(3)
-	task(4)
+	var wg sync.WaitGroup
 
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go task(i, &wg)
+	}
+
+	wg.Wait()
 	fmt.Println("Time to finish all tasks: ", time.Since(start))
 }
