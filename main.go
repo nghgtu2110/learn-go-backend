@@ -25,7 +25,7 @@ func main() {
 	}()
 
 	// do anything on the channel isn't quick
-	// so fmt.Println() may complete sooner
+	// so fmt.Println("") may complete sooner
 
 	fmt.Println("Ending")
 	time.Sleep(1 * time.Second)
