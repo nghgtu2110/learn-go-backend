@@ -29,8 +29,8 @@ func ReadPeopleFromFile(filepath string) []personStruct.Person {
 			parts := strings.Split(line, "|")
 
 			person := personStruct.Person{}
-			person.Name = parts[0]
-			person.Occupation = parts[1]
+			person.Name = strings.ToUpper(parts[0])
+			person.Occupation = strings.ToLower(parts[1])
 
 			birthYear, err := strconv.Atoi(parts[2])
 			if err != nil {
@@ -47,8 +47,8 @@ func ReadPeopleFromFile(filepath string) []personStruct.Person {
 		parts := strings.Split(line, "|")
 
 		person := personStruct.Person{}
-		person.Name = parts[0]
-		person.Occupation = parts[1]
+		person.Name = strings.ToUpper(parts[0])
+		person.Occupation = strings.ToLower(parts[1])
 
 		birthYear, err := strconv.Atoi(parts[2])
 		if err != nil {
