@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"others/charOccur"
 	"others/personStruct"
+	"others/readfilePkg"
 	"others/rectangle"
 	"others/slicePkg"
 	"others/stringPkg"
@@ -43,4 +44,5 @@ func main() {
 		fmt.Printf("%c : %d,", k, v)
 	}
 
+	fmt.Println(readfilePkg.PrintFromFile("input.txt"))
 }
