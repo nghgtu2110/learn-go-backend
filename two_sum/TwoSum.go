@@ -3,12 +3,19 @@ package two_sum
 //https://leetcode.com/problems/two-sum/
 
 func TwoSum(nums []int, target int) []int {
-	for i := 0; i < len(nums)-1; i++ {
-		for j := i + 1; j < len(nums); j++ {
-			if nums[i]+nums[j] == target {
-				return []int{i, j}
-			}
+	// key: number, value: index
+	numMap := make(map[int]int)
+
+	for i, num := range nums {
+		complement := target - num
+
+		if index, found := numMap[complement]; found {
+			return []int{index, i}
 		}
+
+		// Save the current number and its index to map
+		numMap[num] = i
 	}
-	return []int{}
+
+	return nil // if no solution found
 }
