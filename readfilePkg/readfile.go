@@ -2,8 +2,10 @@ package readfilePkg
 
 import (
 	"bufio"
+	//"fmt"
 	"io"
 	"os"
+	//"others/personStruct"
 	"strings"
 )
 
@@ -21,15 +23,24 @@ func PrintFromFile(filepath string) string {
 	output := ""
 
 	for {
-		inputString, readerError := inputReader.ReadString('|')
-		if readerError == io.EOF {
-			output += "The input was:" + inputString + "\n"
+		line, lineError := inputReader.ReadString('\n')
+		if lineError == io.EOF {
+			parts := strings.Split(line, "|")
+			//person := personStruct.Person{}
+			for _, part := range parts {
+				//fmt.Printf("Part %d: %s\n", i, part)
+				output += part + "-"
+			}
 			break
 		}
 
-		inputString = strings.TrimSuffix(inputString, "|")
-
-		output += "The input was:" + inputString + "\n"
+		line = strings.TrimSuffix(line, "\r\n")
+		parts := strings.Split(line, "|")
+		//person := personStruct.Person{}
+		for _, part := range parts {
+			//fmt.Printf("Part %d: %s\n", i, part)
+			output += part + "-"
+		}
 	}
 	return output
 }
