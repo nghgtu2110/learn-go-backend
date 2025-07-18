@@ -19,11 +19,16 @@ func main() {
 	defer inputFile.Close()
 	inputReader := bufio.NewReader(inputFile)
 	for {
-		// needs another | character at the end of file input
 		inputString, readerError := inputReader.ReadString('|')
 		if readerError == io.EOF {
-			return
+			fmt.Println("The input was:", inputString)
+			fmt.Println("Read error:", readerError)
+			break // EOF reached after printing the last line
 		}
+		//if readerError != nil {
+		//	fmt.Println("Read error:", readerError)
+		//	break
+		//}
 		fmt.Printf("The input was: %s", inputString)
 	}
 }
