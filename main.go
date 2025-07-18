@@ -26,7 +26,6 @@ func main() {
 		inputString, readerError := inputReader.ReadString('|')
 		if readerError == io.EOF {
 			fmt.Printf("The input was: %s\n", inputString)
-			fmt.Println("Read error:", readerError)
 			break // EOF reached after printing the last line
 		}
 		// Remove the trailing newline '\n' or any delimiter
