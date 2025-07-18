@@ -2,45 +2,62 @@ package readfilePkg
 
 import (
 	"bufio"
-	//"fmt"
+	"fmt"
 	"io"
 	"os"
-	//"others/personStruct"
+	"others/personStruct"
+	"strconv"
 	"strings"
 )
 
-func PrintFromFile(filepath string) string {
+func ReadPeopleFromFile(filepath string) []personStruct.Person {
+	var people []personStruct.Person
 	inputFile, inputError := os.Open(filepath)
 	if inputError != nil {
-		return "An error occurred on opening the input file\n" +
-			"Does the file exist?\n" +
-			"Have you got access to it?\n"
+		fmt.Println("An error occurred on opening the input file\n",
+			"Does the file exist?\n",
+			"Have you got access to it?")
 	}
 
 	defer inputFile.Close()
 
 	inputReader := bufio.NewReader(inputFile)
-	output := ""
 
 	for {
 		line, lineError := inputReader.ReadString('\n')
 		if lineError == io.EOF {
 			parts := strings.Split(line, "|")
-			//person := personStruct.Person{}
-			for _, part := range parts {
-				//fmt.Printf("Part %d: %s\n", i, part)
-				output += part + "-"
+
+			person := personStruct.Person{}
+			person.Name = parts[0]
+			person.Occupation = parts[1]
+
+			birthYear, err := strconv.Atoi(parts[2])
+			if err != nil {
+				fmt.Println("Error converting birth year:", err)
+				break
 			}
+
+			person.BirthYear = birthYear
+			people = append(people, person)
 			break
 		}
 
 		line = strings.TrimSuffix(line, "\r\n")
 		parts := strings.Split(line, "|")
-		//person := personStruct.Person{}
-		for _, part := range parts {
-			//fmt.Printf("Part %d: %s\n", i, part)
-			output += part + "-"
+
+		person := personStruct.Person{}
+		person.Name = parts[0]
+		person.Occupation = parts[1]
+
+		birthYear, err := strconv.Atoi(parts[2])
+		if err != nil {
+			fmt.Println("Error converting birth year:", err)
+			break
 		}
+		person.BirthYear = birthYear
+
+		people = append(people, person)
 	}
-	return output
+	return people
 }

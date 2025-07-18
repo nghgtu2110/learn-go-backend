@@ -39,5 +39,5 @@ func main() {
 	//	fmt.Printf("%c : %d,", k, v)
 	//}
 
-	fmt.Println(readfilePkg.PrintFromFile("input.txt"))
+	fmt.Println(readfilePkg.ReadPeopleFromFile("input.txt"))
 }
