@@ -21,14 +21,11 @@ func main() {
 	for {
 		inputString, readerError := inputReader.ReadString('|')
 		if readerError == io.EOF {
-			fmt.Println("The input was:", inputString)
+			fmt.Printf("The input was: %s\n", inputString)
 			fmt.Println("Read error:", readerError)
 			break // EOF reached after printing the last line
 		}
-		//if readerError != nil {
-		//	fmt.Println("Read error:", readerError)
-		//	break
-		//}
-		fmt.Printf("The input was: %s", inputString)
+
+		fmt.Printf("The input was: %s\n", inputString)
 	}
 }
