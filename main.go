@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -16,8 +17,11 @@ func main() {
 			"Have you got access to it?\n")
 		return // exit the function on error
 	}
+
 	defer inputFile.Close()
+
 	inputReader := bufio.NewReader(inputFile)
+
 	for {
 		inputString, readerError := inputReader.ReadString('|')
 		if readerError == io.EOF {
@@ -25,7 +29,10 @@ func main() {
 			fmt.Println("Read error:", readerError)
 			break // EOF reached after printing the last line
 		}
-
+		// Remove the trailing newline '\n' or any delimiter
+		inputString = strings.TrimSuffix(inputString, "|")
+		// Use TrimRight if you want to remove \r\n (Windows)
+		// line = strings.TrimRight(line, "\r\n")
 		fmt.Printf("The input was: %s\n", inputString)
 	}
 }
