@@ -6,22 +6,28 @@ import (
 )
 
 func main() {
-	fmt.Println("In main()")
-	go longWait()
-	go shortWait()
-	fmt.Println("About to sleep in main()")
-	time.Sleep(10 * 1e9) // sleep works with a Duration in nanoseconds (ns)!
-	fmt.Println("At the end of main()")
-}
+	ch1 := make(chan string)
+	ch2 := make(chan string)
 
-func longWait() {
-	fmt.Println("Beginning longWait()")
-	time.Sleep(5 * 1e9) // sleep for 5 seconds
-	fmt.Println("End of longWait()")
-}
+	go func() {
+		time.Sleep(1 * time.Second)
+		ch1 <- "Hello from ch1"
+	}()
 
-func shortWait() {
-	fmt.Println("Beginning shortWait()")
-	time.Sleep(2 * 1e9) // sleep for 2 seconds
-	fmt.Println("End of shortWait()")
+	go func() {
+		time.Sleep(2 * time.Second)
+		ch2 <- "Hello from ch2"
+	}()
+
+	//Nếu muốn nhận cả ch1 và ch2, bạn cần dùng for-select
+	//Khi đó, chương trình sẽ chờ lần lượt 2 lần để nhận cả hai channel.
+	for i := 0; i < 2; i++ {
+		select {
+		case msg1 := <-ch1:
+			fmt.Println("Received from ch1:", msg1)
+		case msg2 := <-ch2:
+			fmt.Println("Received from ch2:", msg2)
+		}
+	}
+
 }
