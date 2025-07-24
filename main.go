@@ -6,26 +6,22 @@ import (
 )
 
 func main() {
-	fmt.Println("Starting")
-	ch := make(chan int)
+	fmt.Println("In main()")
+	go longWait()
+	go shortWait()
+	fmt.Println("About to sleep in main()")
+	time.Sleep(10 * 1e9) // sleep works with a Duration in nanoseconds (ns)!
+	fmt.Println("At the end of main()")
+}
 
-	go func() {
-		//defer close(ch)
-		ch <- 10
-		ch <- 20
-		ch <- 30
-		fmt.Println("Sending...")
-	}()
+func longWait() {
+	fmt.Println("Beginning longWait()")
+	time.Sleep(5 * 1e9) // sleep for 5 seconds
+	fmt.Println("End of longWait()")
+}
 
-	// error here
-	close(ch)
-	// main always starts earlier than other go routines
-
-	// only work when there is close the channel statement
-	for v := range ch {
-		fmt.Println(v)
-	}
-
-	fmt.Println("Ending")
-	time.Sleep(1 * time.Second)
+func shortWait() {
+	fmt.Println("Beginning shortWait()")
+	time.Sleep(2 * 1e9) // sleep for 2 seconds
+	fmt.Println("End of shortWait()")
 }
