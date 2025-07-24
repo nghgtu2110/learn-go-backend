@@ -19,8 +19,8 @@ func main() {
 		ch2 <- "Hello from ch2"
 	}()
 
-	//Nếu muốn nhận cả ch1 và ch2, bạn cần dùng for-select
-	//Khi đó, chương trình sẽ chờ lần lượt 2 lần để nhận cả hai channel.
+	/*Nếu muốn nhận cả ch1 và ch2, bạn cần dùng for-select
+	Khi đó, chương trình sẽ chờ lần lượt 2 lần để nhận cả hai channel. */
 	for i := 0; i < 2; i++ {
 		select {
 		case msg1 := <-ch1:
